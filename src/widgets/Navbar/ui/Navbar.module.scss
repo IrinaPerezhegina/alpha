@@ -1,0 +1,23 @@
+.Navbar {
+    width: 90%;
+    height: var(--navbar-height);
+    background: var(--card-bg);
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    margin: auto;
+}
+
+.mainLink {
+    margin-right: 15px;
+}
+
+.links,
+.actions {
+    margin-left: auto;
+}
+
+.appName {
+    width: var(--sidebar-width);
+    margin-left: 15px;
+}

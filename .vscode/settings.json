@@ -1,0 +1,26 @@
+{
+  
+    "stylelint.config": null,
+    "stylelint.enable": true,
+    "css.validate": true,
+    "scss.validate": true,
+    "stylelint.validate": [
+    "css",
+    "scss"
+    ],
+    "[scss]": {
+        "editor.defaultFormatter": "stylelint.vscode-stylelint" 
+    },
+    "[css]": {
+        "editor.defaultFormatter": "stylelint.vscode-stylelint"
+    },
+    "editor.codeActionsOnSave": {
+        "source.fixAll.stylelint": "always",
+        "source.fixAll.eslint": "always"
+    },
+    "eslint.debug": true,
+    "files.associations": {
+        "**/.fttemplates/**": "plaintext",
+        }
+    } 
+    
