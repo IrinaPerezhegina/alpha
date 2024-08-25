@@ -49,6 +49,9 @@ export const UserCard = memo(({ className }:UserCardProps) => {
                 </AppLink>
             </HStack>
             <VStack max gap="8" justify="between">
+                <HStack gap="16">
+                    <Avatar src={Profile} />
+                </HStack>
                 <HStack gap="8" max justify="between">
                     <VStack align="start">
                         <HStack align="start" gap="8">
@@ -90,7 +93,7 @@ export const UserCard = memo(({ className }:UserCardProps) => {
                             />
                         </HStack>
                     </VStack>
-                    <Avatar src={Profile} />
+
                 </HStack>
 
             </VStack>
