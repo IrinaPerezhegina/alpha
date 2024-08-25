@@ -5,6 +5,10 @@ import { StoreProvider } from 'app/providers/StoreProvider/ui/StoreProvider';
 import App from './app/App';
 
 const container = document.getElementById('root');
+if (!container) {
+    throw new Error('Контейнер root не найден');
+}
+
 const root = createRoot(container);
 root.render(
     <StoreProvider>

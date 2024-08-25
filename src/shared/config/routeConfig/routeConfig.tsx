@@ -1,6 +1,6 @@
 import { DetailsPage } from 'pages/DetailsPage';
 import { MainPage } from 'pages/MainPage';
-import { RouteProps } from 'react-router-dom';
+import { Navigate, RouteProps } from 'react-router-dom';
 
 export enum AppRoutes{
 MAIN='main',
@@ -26,7 +26,7 @@ export const routeConfig:Record<AppRoutes, RouteProps> = {
     },
     [AppRoutes.NOT_FOUND]: {
         path: RoutePath.not_found,
-        element: <MainPage />,
+        element: <Navigate to="/" replace />,
     },
 
 };
