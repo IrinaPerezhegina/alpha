@@ -22,19 +22,32 @@ className?: string;
 
 export const UserCard = memo(({ className }:UserCardProps) => {
     const { id } = useParams<{id:string}>();
-    const user = useSelector(getFetchUsersData).find((el) => el.id === Number(id));
+    const item = useSelector(getFetchUsersData).find((el) => el.id === Number(id));
     const isLoading = useSelector(getFetchUsersIsLoading);
     const dispatch = useAppDispatch();
-    console.log(id, user, isLoading);
+
     useEffect(() => {
-        if (!isLoading && !user) {
+        if (!isLoading && !item) {
             dispatch(fetchUsersList());
         }
-    }, [dispatch, id, isLoading, user]);
-    console.log(user);
-    const item = user;
-    if (!user) {
-        return <Skeleton />;
+    }, [dispatch, id, isLoading, item]);
+
+    if (!item) {
+        return (
+            <VStack
+                gap="50"
+                justify="between"
+                max
+                className={classNames(cls.UserCard, {}, [className])}
+            >
+                <HStack justify="start">
+                    <Skeleton height="100px" width="100px" />
+                </HStack>
+                <Skeleton border="50%" height="100px" width="100px" />
+                <Skeleton border="20px" height="200px" width="600px" />
+                <Skeleton border="20px" height="200px" width="600px" />
+            </VStack>
+        );
     } return (
         <VStack
             gap="50"
@@ -46,14 +59,19 @@ export const UserCard = memo(({ className }:UserCardProps) => {
                 <AppLink
                     to={RoutePath.main}
                 >
-                    <Button theme={ButtonTheme.BACKGROUND_INVERTED}>
+                    <Button
+                        theme={ButtonTheme.BACKGROUND_INVERTED}
+                    >
                         Вернуться к списку карточек
                     </Button>
                 </AppLink>
             </HStack>
             <VStack gap="50" className={cls.content}>
                 <HStack gap="16">
-                    <Avatar src={Profile} />
+                    <Avatar
+                        src={Profile}
+                        size={150}
+                    />
                 </HStack>
                 <HStack gap="8" max>
                     <VStack align="start">
