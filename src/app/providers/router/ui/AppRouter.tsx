@@ -10,7 +10,10 @@ export const AppRouter = () => (
             justify="center"
             align="center"
         >
-            <Skeleton width="90%" height="100vh" />
+            <Skeleton
+                width="90%"
+                height="100vh"
+            />
         </VStack>
     )}
     >

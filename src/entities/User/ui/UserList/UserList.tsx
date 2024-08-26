@@ -1,10 +1,14 @@
-import { memo, useCallback, useEffect } from 'react';
+import {
+    memo, useCallback, useEffect,
+} from 'react';
 import { VStack } from 'shared/ui/Stack';
 import { classNames } from 'shared/lib/classnames/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { changeStatusCard } from 'entities/User/model/services/changeStatusCard';
 import { deleteCard } from 'entities/User/model/services/deleteCard';
+import { Text } from 'shared/ui/Text/Text';
+import { User } from '../../model/types/user';
 import {
     getFavoriteData,
     getFetchUsersData,
@@ -27,8 +31,9 @@ export const UserList = memo((props:UserListProps) => {
     const isLoading = useSelector(getFetchUsersIsLoading);
     const error = useSelector(getFetchUsersError);
     const dispatch = useAppDispatch();
-    console.log(favoriteData);
+
     const users = favorite ? favoriteData : data;
+
     useEffect(() => {
         if (!isLoading && data.length === 0) {
             dispatch(fetchUsersList());
@@ -46,6 +51,18 @@ export const UserList = memo((props:UserListProps) => {
     if (error) {
         return <p>Произошла ошибка, попробуйте позднее</p>;
     }
+    if (users.length === 0 && favorite) {
+        return (
+            <VStack
+                gap="16"
+                max
+                justify="center"
+                className={classNames(cls.userList, {}, [className])}
+            >
+                <Text title="The folder is empty..." />
+            </VStack>
+        );
+    }
 
     return (
         <VStack
@@ -53,7 +70,7 @@ export const UserList = memo((props:UserListProps) => {
             max
             className={classNames(cls.userList, {}, [className])}
         >
-            {users?.map((item:any) => (
+            {users?.map((item:User) => (
                 <UserItem
                     isLoading={isLoading}
                     key={item.id}
@@ -63,5 +80,6 @@ export const UserList = memo((props:UserListProps) => {
                 />
             ))}
         </VStack>
+
     );
 });

@@ -5,3 +5,17 @@
     padding: 20px 30px 30px 40px;
     background: var(--inverted-bg-color);
 }
+
+.title > h2 {
+    width: 150px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.title > p {
+    width: 150px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

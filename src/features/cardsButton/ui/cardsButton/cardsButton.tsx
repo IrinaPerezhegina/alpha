@@ -7,8 +7,13 @@ export const CardsButton = memo(() => {
 
     return (
         <>
-            <Navbar setFavorite={setFavorite} favorite={favorite} />
-            <UserList favorite={favorite} />
+            <Navbar
+                setFavorite={setFavorite}
+                favorite={favorite}
+            />
+            <UserList
+                favorite={favorite}
+            />
         </>
     );
 });

@@ -19,7 +19,7 @@ export const Navbar = memo(({ className, setFavorite, favorite }:NavbarProps) =>
                 theme={ButtonTheme.OUTLINE}
                 className={cls.links}
             >
-                Избранное
+                All cards
             </Button>
         ) : (
             <Button
@@ -27,7 +27,7 @@ export const Navbar = memo(({ className, setFavorite, favorite }:NavbarProps) =>
                 theme={ButtonTheme.OUTLINE}
                 className={cls.links}
             >
-                Все карточки
+                Favourites
             </Button>
         )}
 

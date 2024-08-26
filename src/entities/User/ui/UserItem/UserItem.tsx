@@ -1,4 +1,8 @@
-import { HTMLAttributeAnchorTarget, memo, useCallback } from 'react';
+import {
+    HTMLAttributeAnchorTarget,
+    memo,
+    useCallback,
+} from 'react';
 import { Text, TextSize, TextTheme } from 'shared/ui/Text/Text';
 import { classNames } from 'shared/lib/classnames/classNames';
 import { HStack, VStack } from 'shared/ui/Stack';
@@ -51,7 +55,7 @@ export const UserItem = memo((props:UserItemProps) => {
                 <Text
                     theme={TextTheme.INVERTED}
                     size={TextSize.L}
-                    title="Карточка профиля"
+                    title="Profile card"
                 />
                 <Button theme={ButtonTheme.CLEAR} onClick={deleteCard}>
                     <Icon Svg={TiDeleteOutline} fontSize={50} />
@@ -68,6 +72,7 @@ export const UserItem = memo((props:UserItemProps) => {
                                 title="("
                             />
                             <Text
+                                className={cls.title}
                                 title={item.name}
                             />
                             <Text
@@ -79,6 +84,7 @@ export const UserItem = memo((props:UserItemProps) => {
                                 text="email:"
                             />
                             <Text
+                                className={cls.title}
                                 text={item.email}
                             />
                         </HStack>
@@ -87,6 +93,7 @@ export const UserItem = memo((props:UserItemProps) => {
                                 text="phone:"
                             />
                             <Text
+                                className={cls.title}
                                 text={item.phone}
                             />
                         </HStack>
@@ -95,6 +102,7 @@ export const UserItem = memo((props:UserItemProps) => {
                                 text="city:"
                             />
                             <Text
+                                className={cls.title}
                                 text={item.address.city}
                             />
                         </HStack>
@@ -103,12 +111,12 @@ export const UserItem = memo((props:UserItemProps) => {
                 </HStack>
 
             </VStack>
-            <HStack max justify="start" gap="32">
+            <HStack max justify="start" gap="50" align="center">
                 <AppLink
                     target={target}
                     to={`${RoutePath.card}/${item.id}`}
                 >
-                    <Button>Подробнее о профиле</Button>
+                    <Button>More detailed...</Button>
                 </AppLink>
                 <Button theme={ButtonTheme.CLEAR} onClick={statusHandler}>
                     <Icon

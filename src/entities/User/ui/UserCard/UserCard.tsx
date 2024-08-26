@@ -3,7 +3,10 @@ import { classNames } from 'shared/lib/classnames/classNames';
 import { memo, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { getFetchUsersData, getFetchUsersIsLoading } from 'entities/User/model/selectors/users/users';
+import {
+    getFetchUsersData,
+    getFetchUsersIsLoading,
+} from 'entities/User/model/selectors/users/users';
 import { fetchUsersList } from 'entities/User/model/services/fetchUsersData';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { HStack, VStack } from 'shared/ui/Stack';
@@ -62,7 +65,7 @@ export const UserCard = memo(({ className }:UserCardProps) => {
                     <Button
                         theme={ButtonTheme.BACKGROUND_INVERTED}
                     >
-                        Вернуться к списку карточек
+                        Go back to the list of cards
                     </Button>
                 </AppLink>
             </HStack>
