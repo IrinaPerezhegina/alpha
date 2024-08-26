@@ -6,4 +6,5 @@ const App = () => (
         <AppRouter />
     </div>
 );
+
 export default App;

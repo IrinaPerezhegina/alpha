@@ -30,8 +30,10 @@ export const UserList = memo((props:UserListProps) => {
     console.log(favoriteData);
     const users = favorite ? favoriteData : data;
     useEffect(() => {
-        dispatch(fetchUsersList());
-    }, [dispatch]);
+        if (!isLoading && data.length === 0) {
+            dispatch(fetchUsersList());
+        }
+    }, [dispatch, data, isLoading]);
 
     const onChangeStatus = useCallback((id:number) => {
         dispatch(changeStatusCard(id));

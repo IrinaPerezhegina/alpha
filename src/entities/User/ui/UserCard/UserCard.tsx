@@ -27,8 +27,10 @@ export const UserCard = memo(({ className }:UserCardProps) => {
     const dispatch = useAppDispatch();
     console.log(id, user, isLoading);
     useEffect(() => {
-        dispatch(fetchUsersList());
-    }, [dispatch, id]);
+        if (!isLoading && !user) {
+            dispatch(fetchUsersList());
+        }
+    }, [dispatch, id, isLoading, user]);
     console.log(user);
     const item = user;
     if (!user) {
